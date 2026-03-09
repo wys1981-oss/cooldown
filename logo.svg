@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <!-- Gradient for ice effect -->
+    <linearGradient id="iceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f7ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7dd3fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="180" fill="url(#iceGradient)" opacity="0.1"/>
+  <circle cx="200" cy="200" r="170" fill="none" stroke="url(#iceGradient)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Outer snowflake arms -->
+  <g stroke="url(#iceGradient)" stroke-width="4" fill="none" filter="url(#glow)">
+    <!-- Main arms -->
+    <line x1="200" y1="80" x2="200" y2="320" stroke-linecap="round"/>
+    <line x1="104" y1="144" x2="296" y2="256" stroke-linecap="round"/>
+    <line x1="104" y1="256" x2="296" y2="144" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Inner snowflake details -->
+  <g fill="url(#iceGradient)" filter="url(#glow)">
+    <!-- Center hexagon -->
+    <polygon points="200,170 215,178 215,195 200,203 185,195 185,178" />
+    
+    <!-- Arm decorations -->
+    <circle cx="200" cy="120" r="6"/>
+    <circle cx="200" cy="280" r="6"/>
+    <circle cx="144" cy="168" r="6"/>
+    <circle cx="256" cy="232" r="6"/>
+    <circle cx="144" cy="232" r="6"/>
+    <circle cx="256" cy="168" r="6"/>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="280" cy="100" r="3"/>
+    <circle cx="120" cy="140" r="2"/>
+    <circle cx="300" cy="200" r="2"/>
+    <circle cx="100" cy="260" r="3"/>
+    <circle cx="260" cy="300" r="2"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+        fill="url(#iceGradient)" text-anchor="middle" filter="url(#shadow)">
+    COOLDOWN
+  </text>
+</svg>
